@@ -1,5 +1,5 @@
 import React from 'react';
-import MainService from './src/services/MainService.js';
+import SplashInit from './src/services/SplashInit.js';
 import Button from 'react-native-button';
 import Splash from './Splash.js';
 import Login from './src/components/Login/Login.js';
@@ -11,7 +11,7 @@ export default class App extends React.Component {
     }
   constructor(){
       super();
-      MainService.load(v => this.setState({loaded: true}));
+      SplashInit.load(v => this.setState({loaded: true}));
     }
   render() {
     return (
