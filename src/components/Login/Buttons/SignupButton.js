@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
 		backgroundColor: 'black',
 		borderStyle: 'solid',
 		borderWidth: 1,
-		borderColor: 'white',
+		// borderColor: 'white',
 		borderRadius: 50,
 	},
 	loginButton: {
