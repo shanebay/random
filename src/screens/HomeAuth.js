@@ -1,11 +1,11 @@
 import React from 'react';
-import LoginButton from './Buttons/LoginButton.js';
-import SignupButton from './Buttons/SignupButton.js';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import Button from 'react-native-button';
 
-export default class Login extends React.Component {
-  render() {
-    return (
+import SignUp from "./SignUp";
+import SignIn from "./SignIn";
+
+export default ({ navigation }) => (
       <View style={styles.container}>
         <View style={styles.backgroundContainer}>
       <Image style={styles.background} source={{ uri: remoteImages }}></Image>
@@ -14,13 +14,22 @@ export default class Login extends React.Component {
           <Text style={styles.title}>Random.</Text>
         </View>
         <View style={styles.buttonContainer}>
-          <LoginButton></LoginButton>
-          <SignupButton></SignupButton>
+
+      <View style={styles.loginButtonContainer}>
+          <Button onPress={() => navigation.navigate("SignIn")} style={styles.loginButton}>
+          Log In
+        </Button>
+      </View>
+
+      <View style={styles.signupButtonContainer}>
+          <Button onPress={() => navigation.navigate("SignUp")} style={styles.signupButton}>
+          Create Account
+        </Button>
+      </View>
+
     </View>
     </View>
     );
-  }
-}
 
 const remoteImages = 'https://source.unsplash.com/Nxy-6QwGMzA/1000x1000';
 
@@ -61,5 +70,36 @@ const styles = StyleSheet.create({
     width: '100%',
     marginBottom: '10%',
     alignItems: 'center',
+  },
+  loginButton: {
+    fontSize: 20, 
+    color: 'black', 
+    fontFamily:'AvenirNext-UltraLight',
+  },
+  signupButton: {
+    fontSize: 20, 
+    color: 'white', 
+    fontFamily:'AvenirNext-UltraLight',
+  },
+  loginButtonContainer: {
+    width: '80%',
+    justifyContent: 'center',
+    height: 55,
+    overflow: 'hidden',
+    backgroundColor: 'white',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderRadius: 50,
+    marginBottom: 15,
+  },
+  signupButtonContainer: {
+    width: '80%',
+    justifyContent: 'center',
+    height: 55,
+    overflow: 'hidden',
+    backgroundColor: 'black',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderRadius: 50,
   },
 });
